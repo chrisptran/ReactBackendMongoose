@@ -1,10 +1,12 @@
 //1. import dependencies
 const express = require("express")
 const app = express()
+const cors = require("cors")
 
 // 2. config
 require("./config/mongoose.config")
 
+app.use(cors())
 app.use(express.json(), express.urlencoded({ extended: true }))
 
 // 3. routes

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const DestinationSchema = new mongoose.Schema({
     location : {
         type: String,
-        required: [true, "Location is required"],
+        required: [true, "{PATH} is required"],
         minlength: [3, "Location must be at least 3 characters"]
     },
     rating : {
