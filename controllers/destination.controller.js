@@ -7,19 +7,19 @@ module.exports.testApi = (req, res) => {
 module.exports.allDest = (req, res) => {
     Destination.find()
         .then(destList => res.json(destList))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
 
 module.exports.oneDest = (req, res) => {
     Destination.findOne({ _id: req.params.id })
         .then(oneDest => res.json(oneDest))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
 
 module.exports.addDest = (req, res) => {
     Destination.create(req.body)
         .then(createdDest => res.json(createdDest))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
 
 module.exports.addDest2 = async (req, res) => {
@@ -40,12 +40,12 @@ module.exports.updateDest = (req, res) => {
         { new: true, runValidators: true }
     )
         .then(updatedDest => res.json(updatedDest))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
 
 module.exports.deleteDest = (req, res) => {
 
     Destination.deleteOne({ _id: req.params.id })
         .then(response => res.json(response))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
